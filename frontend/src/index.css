@@ -1,0 +1,84 @@
+:root {
+  --bg-primary: #020202;
+  /* Deeper, rich black */
+  --bg-secondary: #080808;
+  /* Very subtle contrast for sidebar */
+  --bg-card: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  /* Cool gray */
+  --accent: #00d26a;
+  /* Vibrant, punchy green like the reference */
+  --border: #1a1a1a;
+  --font-main: 'Inter', sans-serif;
+  --transition: all 0.3s ease-in-out;
+  --sidebar-width: 280px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-main);
+}
+
+/* Layout Utilities */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: var(--sidebar-width);
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+}

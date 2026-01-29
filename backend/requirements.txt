@@ -1,0 +1,10 @@
+asgiref==3.11.0
+Django==6.0.1
+django-cors-headers==4.6.0
+rest_framework==0.1.0
+sqlparse==0.5.5
+tzdata==2025.3
+whitenoise==6.7.0
+dj-database-url==2.1.0
+psycopg2-binary==2.9.10
+gunicorn==22.0.0
