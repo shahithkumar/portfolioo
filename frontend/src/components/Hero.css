@@ -294,15 +294,34 @@
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+        display: none;
+        /* Hide nav menu on mobile for cleaner look */
+    }
+
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        line-height: 1.1;
+        letter-spacing: -1px;
     }
 
     .hero-subtitle {
         font-size: 1.5rem;
+        margin-bottom: 20px;
     }
 
     .hero-description {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    .hero-btn-premium {
+        padding: 14px 28px;
         font-size: 1rem;
     }
 }

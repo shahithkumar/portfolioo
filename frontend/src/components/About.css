@@ -173,6 +173,28 @@
     }
 
     .about-glass-container {
-        padding: 40px;
+        padding: 40px 25px;
+        border-radius: 25px;
+    }
+
+    .about-greeting {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .about-intro {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+
+    .about-stats-mini {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .stat-box {
+        width: 100%;
+        text-align: center;
     }
 }

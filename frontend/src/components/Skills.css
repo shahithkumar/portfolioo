@@ -202,11 +202,27 @@
 }
 
 @media (max-width: 768px) {
+    .skills-marquee-section {
+        padding: 40px 0;
+    }
+
+    .marquee-item {
+        font-size: 1.8rem;
+    }
+
+    .skills-categories-container {
+        padding: 60px 5%;
+    }
+
     .skills-grid-system {
         grid-template-columns: 1fr;
     }
 
     .matrix-cell {
         padding: 20px;
+    }
+
+    .skill-category-title {
+        font-size: 1rem;
     }
 }

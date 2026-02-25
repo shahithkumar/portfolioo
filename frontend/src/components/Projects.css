@@ -4,8 +4,8 @@
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
     max-width: 1300px;
     margin: 50px auto 0;
 }
@@ -521,23 +521,87 @@
 }
 
 @media (max-width: 768px) {
-    .projects-grid {
+    .projects-section {
+        padding: 60px 5%;
+    }
+
+    .projects-container {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .project-overview-card {
-        padding: 40px 30px;
+    .huge-title {
+        font-size: 2.8rem;
     }
 
-    .hook-statement {
-        font-size: 1.4rem;
+    .section-subtitle-badge {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
     }
 
-    .preview-title {
+    .premium-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .premium-title {
         font-size: 1.8rem;
     }
 
+    .preview-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hook-preview-text {
+        font-size: 0.95rem;
+    }
+
+    /* Modal Mobile Fixes */
     .preview-modal-content {
-        padding: 40px 25px;
+        margin: 20px auto;
+        padding: 40px 20px;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .preview-close-btn {
+        top: 20px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+
+    .preview-main-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .modal-hook-container {
+        margin-bottom: 20px;
+    }
+
+    .modal-problem-text {
+        font-size: 1rem;
+    }
+
+    .preview-description-text {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .device-preview-wrapper {
+        margin: 20px auto 40px;
+    }
+
+    .type-mobile .device-frame {
+        width: 240px;
+        /* Scale down phone frame for small screens */
+    }
+
+    .full-project-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 1rem;
     }
 }
