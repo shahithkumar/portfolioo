@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api';
+import './Contact.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -30,69 +31,97 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="section" style={{ textAlign: 'center', maxWidth: '600px' }}>
-            <p style={{ color: 'var(--accent)', fontSize: '16px', marginBottom: '10px' }}>What's Next?</p>
-            <h2 style={{ fontSize: '40px', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '20px' }}>Get In Touch</h2>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '50px' }}>
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
-            </p>
-
-            <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
-                <p style={{ marginBottom: '10px' }}>shahithu2004@gmail.com</p>
-                <p style={{ marginBottom: '10px' }}>+91 6301103526</p>
-                <p style={{ marginBottom: '10px' }}>
-                    <a href="https://linkedin.com/in/shahithkumar" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>linkedin.com/in/shahithkumar</a>
-                </p>
-                <p style={{ marginBottom: '20px' }}>
-                    <a href="https://github.com/shahithkumar" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>github.com/shahithkumar</a>
+        <section id="contact" className="contact-section">
+            <div className="contact-header">
+                <span className="contact-pre">COMMUNICATION_PROTOCOL</span>
+                <h2 className="contact-title">Get In Touch</h2>
+                <p className="contact-subtitle">
+                    Drop a message into the secure line. I'm always open to new challenges and collaborative projects.
                 </p>
             </div>
 
-            {status === 'success' ? (
-                <div style={{ padding: '20px', background: 'rgba(100, 255, 218, 0.1)', color: 'var(--accent)', borderRadius: '4px' }}>
-                    Message sent successfully!
+            <div className="contact-container">
+                <div className="contact-info-hub">
+                    <div className="info-card">
+                        <div className="info-icon">📧</div>
+                        <div className="info-content">
+                            <span className="info-label">Encrypted Mail</span>
+                            <span className="info-value">shahithu2004@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div className="info-card">
+                        <div className="info-icon">📞</div>
+                        <div className="info-content">
+                            <span className="info-label">Direct Line</span>
+                            <span className="info-value">+91 6301103526</span>
+                        </div>
+                    </div>
+
+                    <a href="https://linkedin.com/in/shahithkumar" target="_blank" rel="noopener noreferrer" className="info-card link-card">
+                        <div className="info-icon">in</div>
+                        <div className="info-content">
+                            <span className="info-label">Professional Link</span>
+                            <span className="info-value">LinkedIn Profile</span>
+                        </div>
+                    </a>
                 </div>
-            ) : (
-                <form onSubmit={handleSubmit} style={{ maxWidth: '600px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                    <div>
-                        <label style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '5px' }}>Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            style={{ width: '100%', padding: '10px', background: 'var(--bg-secondary)', border: '1px solid #233554', color: 'var(--text-primary)', borderRadius: '4px' }}
-                        />
-                    </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '5px' }}>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            style={{ width: '100%', padding: '10px', background: 'var(--bg-secondary)', border: '1px solid #233554', color: 'var(--text-primary)', borderRadius: '4px' }}
-                        />
-                    </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '5px' }}>Message</label>
-                        <textarea
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            required
-                            rows="5"
-                            style={{ width: '100%', padding: '10px', background: 'var(--bg-secondary)', border: '1px solid #233554', color: 'var(--text-primary)', borderRadius: '4px' }}
-                        ></textarea>
-                    </div>
-                    <button type="submit" className="btn-primary" style={{ width: '100%' }}>
-                        {status === 'sending' ? 'Sending...' : 'Send Message'}
-                    </button>
-                    {status === 'error' && <p style={{ color: 'red', marginTop: '10px' }}>Something went wrong. Please try again.</p>}
-                </form>
-            )}
+
+                <div className="contact-form-area">
+                    {status === 'success' ? (
+                        <div className="success-message">
+                            <h3>TRANSMISSION_COMPLETE</h3>
+                            <p>Thank you. Your message has been routed to my inbox successfully.</p>
+                            <button className="btn-premium primary" onClick={() => setStatus('')}>Send Another</button>
+                        </div>
+                    ) : (
+                        <div className="contact-form-wrapper">
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label className="form-label">IDENTITY/NAME</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="form-input"
+                                        placeholder="Your Name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label className="form-label">COMMS/EMAIL</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        className="form-input"
+                                        placeholder="email@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label className="form-label">PAYLOAD/MESSAGE</label>
+                                    <textarea
+                                        name="message"
+                                        className="form-textarea"
+                                        placeholder="Compose your transmission..."
+                                        rows="5"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <button type="submit" className="btn-contact-submit">
+                                    {status === 'sending' ? 'TRANSMITTING...' : 'EXECUTE_SEND'}
+                                </button>
+                                {status === 'error' && <p className="error-text">ERROR: UPLINK_FAILED. Please retry.</p>}
+                            </form>
+                        </div>
+                    )}
+                </div>
+            </div>
         </section>
     );
 };

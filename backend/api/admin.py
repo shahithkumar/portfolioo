@@ -3,8 +3,8 @@ from .models import Project, Skill, Contact
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
-    search_fields = ('title', 'tech_stack')
+    list_display = ('title', 'problem_hook', 'created_at')
+    search_fields = ('title', 'tech_stack', 'problem_hook')
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):

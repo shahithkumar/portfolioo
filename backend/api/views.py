@@ -6,6 +6,10 @@ class ProjectListAPIView(generics.ListAPIView):
     queryset = Project.objects.all().order_by('-created_at')
     serializer_class = ProjectSerializer
 
+class ProjectDetailAPIView(generics.RetrieveAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
 class SkillListAPIView(generics.ListAPIView):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer

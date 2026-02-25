@@ -1,48 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Sidebar.css';
 
 const Sidebar = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const location = useLocation();
+    const isProjectPage = location.pathname.startsWith('/project/');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100 || isProjectPage) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isProjectPage]);
+
     return (
-        <aside className="sidebar">
+        <aside className={`sidebar ${!isVisible ? 'hidden' : 'visible'}`}>
             <div className="sidebar-header">
-                <div className="profile-img">
-                    <img src="https://ui-avatars.com/api/?name=User+Name&background=random" alt="Profile" />
-                </div>
+                <Link to="/" className="profile-link">
+                    <div className="profile-img">
+                        <img src="/favicon.svg" alt="SK Badge" />
+                    </div>
+                </Link>
                 <div className="profile-info">
-                    <h3>Sruthi Madhusudanan</h3>
-                    <p>Designer</p>
+                    <h3>Shahith Kumar</h3>
+                    <p>AI Engineer</p>
                 </div>
             </div>
 
             <nav className="sidebar-nav">
-                <a href="#home" className="nav-item active">
+                <HashLink smooth to="/#hero" className="nav-item">
                     <i className="icon-home"></i> Home
-                </a>
-                <a href="#projects" className="nav-item">
+                </HashLink>
+                <HashLink smooth to="/#projects" className="nav-item">
                     <i className="icon-folder"></i> Projects
-                </a>
-                <a href="#about" className="nav-item">
-                    <i className="icon-user"></i> About
-                </a>
-                <a href="#contact" className="nav-item">
+                </HashLink>
+                <HashLink smooth to="/#skills" className="nav-item">
+                    <i className="icon-user"></i> Skills
+                </HashLink>
+                <HashLink smooth to="/#contact" className="nav-item">
                     <i className="icon-mail"></i> Contact
-                </a>
+                </HashLink>
             </nav>
-
-            <div className="sidebar-section">
-                <h4>RESOURCES</h4>
-                <a href="#bookmarks" className="nav-item">
-                    <i className="icon-bookmark"></i> Bookmarks
-                </a>
-                <a href="#stack" className="nav-item">
-                    <i className="icon-layers"></i> Stack
-                </a>
-            </div>
 
             <div className="sidebar-footer">
                 <div className="footer-card">
-                    <p className="date">1/17/2026</p>
-                    <p className="location">Singapore</p>
+                    <p className="date">{new Date().toLocaleDateString()}</p>
+                    <p className="location">Building Things</p>
                 </div>
                 <button className="btn-download">
                     <i className="icon-download"></i> Download CV
@@ -53,3 +66,6 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+

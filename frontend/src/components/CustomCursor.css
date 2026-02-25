@@ -1,0 +1,100 @@
+/* Custom Cinematic Cursor Styles */
+.main-cursor,
+.secondary-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    mix-blend-mode: exclusion;
+}
+
+.main-cursor {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    margin-left: -3px;
+    margin-top: -3px;
+    z-index: 10001;
+}
+
+.secondary-cursor {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 77, 90, 0.4);
+    margin-left: -20px;
+    margin-top: -20px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover States */
+.secondary-cursor.hover {
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    margin-top: -35px;
+    background: rgba(255, 77, 90, 0.1);
+    border-color: var(--accent);
+    border-width: 2px;
+}
+
+.secondary-cursor.hover .cursor-dot {
+    opacity: 1;
+}
+
+.main-cursor.hover {
+    opacity: 0;
+    /* Hide main dot on hover for focus */
+}
+
+/* Clicking Status */
+.secondary-cursor.click {
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+    background: rgba(255, 77, 90, 0.3);
+}
+
+/* Hidden Status (Leaving Window) */
+.main-cursor.hidden,
+.secondary-cursor.hidden {
+    opacity: 0;
+}
+
+/* Global Cursor Removal */
+@media (pointer: fine) {
+    body {
+        cursor: crosshair;
+        /* Fallback but clean */
+    }
+}
+
+/* On mobile, disable custom cursor */
+@media (max-width: 1024px) {
+
+    .main-cursor,
+    .secondary-cursor {
+        display: none;
+    }
+}

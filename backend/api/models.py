@@ -2,11 +2,17 @@ from django.db import models
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(help_text="Short summary for the card")
+    problem_statement = models.TextField(blank=True)
+    solution_overview = models.TextField(blank=True)
+    features = models.TextField(blank=True, help_text="List features (e.g. using bullets or one per line)")
+    architecture_description = models.TextField(blank=True)
+    technical_breakdown = models.TextField(blank=True)
     role = models.CharField(max_length=100, default="Developer")
     timeline = models.CharField(max_length=100, default="Ongoing")
     status = models.CharField(max_length=100, default="In Progress")
     image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    problem_hook = models.TextField(blank=True, help_text="Attention-grabbing problem statement (e.g. 'Ever wasted hours scrolling for jobs?')")
     video = models.FileField(upload_to='videos/', blank=True, null=True)
     tech_stack = models.CharField(max_length=200, help_text="Comma-separated technologies")
     github_link = models.URLField(blank=True)

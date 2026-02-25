@@ -65,9 +65,15 @@ Job hunting becomes measurable.
         role="Full Stack Developer & AI Engineer",
         timeline="4 Weeks",
         status="Production Ready",
+        problem_hook="Have you ever thought of wasting hours scrolling for jobs only to realize your resume doesn't even match?",
         video="videos/JobBot.mp4",
         tech_stack="Django, Python, React, PostgreSQL, TailwindCSS, LaTeX, Groq LLMs, OCR, Celery/Cron, REST APIs",
-        description=jobbot_description
+        description=jobbot_description,
+        problem_statement="Finding relevant jobs is hard. Students apply to 100+ jobs manually and often don't know if their resume matches.",
+        solution_overview="JobBot uses AI to analyze resumes, understand job descriptions, and calculate match scores with high precision.",
+        features="Resume parsing\nSemantic job matching\nAI feedback\nDashboard analytics\nRecommendation engine",
+        architecture_description="User uploads resume -> Text embedding -> Vector search -> LLM reasoning -> Match score generation -> Feedback returned",
+        technical_breakdown="Built with a Groq-powered LLM pipeline for blazing-fast reasoning. Used PostgreSQL for vector storage and React for the real-time dashboard."
     )
 
     # Walletrix
@@ -108,9 +114,15 @@ When user asks "Can I buy a phone?", Backend sends financial context/stats. AI r
         role="Full Stack & AI Engineer",
         timeline="Ongoing",
         status="Production Ready",
+        problem_hook="Ever had issues managing your financials and wondered where all your money went by the 20th?",
         video="videos/Walletrix.mp4",
         tech_stack="Flutter, Dart, Django, PostgreSQL, Groq LLM, fl_chart, Glassmorphism UI, REST APIs",
-        description=walletrix_description
+        description=walletrix_description,
+        problem_statement="Static monthly budgets fail because they don't adapt to daily spending habits, leading to 'broke-by-the-20th' syndrome.",
+        solution_overview="Walletrix uses a Dynamic Survival Algorithm that recalculates your daily limit every time you swipe your card.",
+        features="Survival Budget Engine\nSmart Jar Auto-Savings\nIron Will Discipline Tracker\nFinancial Health Score\nBehavioral Leak Detection",
+        architecture_description="Transaction Input -> Algorithm Recalculation -> Discipline State Update -> Real-time UI Visualization",
+        technical_breakdown="Implemented a custom weighting algorithm for the Iron Will tracker. Used Flutter for high-performance chart rendering and Django for the logic-heavy backend."
     )
 
     print("Creating Skills...")

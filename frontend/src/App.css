@@ -68,22 +68,22 @@
 }
 
 .btn-primary {
-  background: var(--accent, #64ffda);
-  color: var(--bg-primary, #0f172a);
+  background: var(--accent);
+  color: #fff;
   border: none;
 }
 
 .btn-primary:hover {
-  background: #4cdba5;
+  background: #ff3344;
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--accent, #64ffda);
-  border: 1px solid var(--accent, #64ffda);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   margin-left: 15px;
 }
 
 .btn-secondary:hover {
-  background: rgba(100, 255, 218, 0.1);
+  background: rgba(255, 77, 90, 0.1);
 }
