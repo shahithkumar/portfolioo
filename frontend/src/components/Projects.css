@@ -181,24 +181,27 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(15px);
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
     z-index: 10000;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    /* This makes the box scrollable */
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 20px;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    /* Very important for mobile */
 }
 
 .preview-modal-content {
     background: #111;
     width: 100%;
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 60px 20px 100px;
+    /* Added 100px bottom margin so it doesn't get stuck */
     flex-shrink: 0;
     border-radius: 30px;
     padding: 60px 80px;
@@ -206,8 +209,7 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
     animation: modalScaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Ensure content stays within the modal container */
-    max-height: none;
+    min-height: min-content;
 }
 
 @keyframes modalScaleUp {
@@ -561,21 +563,38 @@
     }
 
     /* Modal Mobile Fixes */
+    /* FIX: Hide the annoying red bubble on phones */
+    .media-overlay {
+        display: none !important;
+    }
+
+    .project-media-preview img,
+    .project-media-preview video {
+        opacity: 1;
+        /* Always show images clearly on mobile since there is no hover */
+    }
+
     .preview-modal-overlay {
+        position: fixed;
         padding: 0;
         align-items: flex-start;
-        overflow-y: auto;
-        /* Enable scrolling for modal content */
-        overscroll-behavior: contain;
-        /* Prevent body scroll when modal is scrolled */
+        overflow-y: scroll;
+        /* Force scrolling on mobile */
+        -webkit-overflow-scrolling: touch;
+        /* Enable smooth momentum scroll on iPhone */
+        height: 100%;
+        width: 100%;
     }
 
     .preview-modal-content {
         margin: 0;
-        padding: 60px 20px 40px;
+        padding: 50px 20px 140px;
+        /* EXTRA bottom space so buttons aren't stuck */
         border-radius: 0;
-        min-height: 100vh;
+        min-height: 100.1vh;
+        /* Forces the phone to allow scrolling */
         width: 100%;
+        display: block;
     }
 
     .preview-close-btn {

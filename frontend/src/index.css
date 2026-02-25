@@ -15,6 +15,30 @@
   --sidebar-width: 280px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 77, 90, 0.2);
+  border-radius: 10px;
+  border: 2px solid var(--bg-primary);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
 
 * {
   box-sizing: border-box;

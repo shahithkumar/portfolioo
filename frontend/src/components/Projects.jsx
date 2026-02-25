@@ -57,8 +57,14 @@ const Projects = () => {
             }, 10);
         } else {
             document.body.style.overflow = 'unset';
+            document.body.style.position = '';
+            document.body.style.width = '';
         }
-        return () => { document.body.style.overflow = 'unset'; }
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
     }, [selectedProject]);
 
     const handleMouseMove = (e) => {
