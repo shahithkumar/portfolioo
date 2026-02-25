@@ -13,7 +13,7 @@ const LOCAL_PROJECTS = [
         problem_statement: "Current finance apps track past spending but fail to guide users on how to survive financially in real time...",
         solution_overview: `Walletrix is designed as a real-time financial decision-making system, not just a tracker.\n\nInstead of showing what already happened, it continuously answers:\n👉 “What should I do with my remaining money?”\n\n**⚙️ Core Features**\n- Dynamic Survival Budgeting Engine\n- AI-Powered Financial Coach\n- Smart Savings Jars\n- Calendar-Based Transaction System`,
         tech_stack: "Flutter, Django, PostgreSQL, REST APIs, LLM",
-        video: "http://127.0.0.1:8000/media/videos/Walletrix.mp4",
+        video: "https://d9sfi7dhczrymieu.public.blob.vercel-storage.com/Walletrix.mp4",
         image: null,
         github_link: "https://github.com/Shahithkumar/Walletrix",
         live_link: null
@@ -27,7 +27,7 @@ const LOCAL_PROJECTS = [
         problem_statement: "The job search process is fragmented and inefficient, requiring candidates to manually manage applications...",
         solution_overview: `JobBot is an agentic AI system designed to automate job hunting with the speed of a bot and the precision of a human.\n\n**⚙️ Core Features**\n- Smart Job Discovery Engine\n- AI Resume & Cover Letter Optimization (ATS Engine)\n- Interactive Application Tracker\n- Real-Time AI Interview Coach\n- Automated Follow-Up System`,
         tech_stack: "React, Django, PostgreSQL, Groq LLaMA-3, Whisper",
-        video: "http://127.0.0.1:8000/media/videos/JobBot.mp4",
+        video: "https://d9sfi7dhczrymieu.public.blob.vercel-storage.com/JobBot.mp4",
         image: null,
         github_link: "https://github.com/Shahithkumar/JobBot",
         live_link: null
@@ -142,7 +142,7 @@ const Projects = () => {
                                         </div>
                                     </div>
                                     {project.video ? (
-                                        <video autoPlay muted loop src={project.video} />
+                                        <video autoPlay muted loop playsInline src={project.video} />
                                     ) : project.image ? (
                                         <img src={project.image} alt={project.title} />
                                     ) : (
