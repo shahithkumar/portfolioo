@@ -576,18 +576,25 @@
 
     .preview-modal-overlay {
         position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.99);
-        z-index: 100000;
+        padding: 0;
+        align-items: flex-start;
         overflow-y: scroll;
+        /* Force scrolling on mobile */
         -webkit-overflow-scrolling: touch;
+        /* Enable smooth momentum scroll on iPhone */
+        height: 100%;
+        width: 100%;
     }
 
     .preview-modal-content {
-        padding: 80px 20px 150px;
-        min-height: 101vh;
-        border: none;
+        margin: 0;
+        padding: 50px 20px 140px;
+        /* EXTRA bottom space so buttons aren't stuck */
         border-radius: 0;
+        min-height: 100.1vh;
+        /* Forces the phone to allow scrolling */
+        width: 100%;
+        display: block;
     }
 
     .preview-close-btn {

@@ -50,12 +50,20 @@ const Projects = () => {
 
     useEffect(() => {
         if (selectedProject) {
-            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                const modal = document.querySelector('.preview-modal-overlay');
+                if (modal) modal.scrollTop = 0;
+            }, 10);
         } else {
-            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'unset';
+            document.body.style.position = '';
+            document.body.style.width = '';
         }
         return () => {
-            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'unset';
+            document.body.style.position = '';
+            document.body.style.width = '';
         }
     }, [selectedProject]);
 
