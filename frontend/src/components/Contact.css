@@ -168,3 +168,11 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 768px) {
+
+    .contact-form-wrapper,
+    .success-message {
+        padding: 30px;
+    }
+}

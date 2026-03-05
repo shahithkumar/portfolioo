@@ -184,3 +184,23 @@ body::after {
   height: 6px;
   background: #ff4d5a;
 }
+
+/* Mobile Global Fixes */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 6%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+    word-break: break-word;
+  }
+
+  .title::after {
+    width: 60px;
+    bottom: -10px;
+    height: 4px;
+  }
+}

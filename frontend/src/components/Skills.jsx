@@ -2,21 +2,47 @@ import React, { useEffect, useState } from 'react';
 import api from '../api';
 import './Skills.css';
 
+const LOCAL_SKILLS = [
+    // Languages
+    { id: 1, name: 'Python', category: 'LG', icon: 'fab fa-python' },
+    { id: 2, name: 'SQL', category: 'LG', icon: 'fas fa-database' },
+    { id: 3, name: 'Dart', category: 'LG', icon: 'fas fa-code' },
+    { id: 4, name: 'JavaScript', category: 'LG', icon: 'fab fa-js' },
+    { id: 5, name: 'HTML', category: 'LG', icon: 'fab fa-html5' },
+    { id: 6, name: 'CSS', category: 'LG', icon: 'fab fa-css3-alt' },
+    // Frameworks
+    { id: 7, name: 'Django', category: 'FW', icon: 'fas fa-layer-group' },
+    { id: 8, name: 'Django REST Framework (DRF)', category: 'FW', icon: 'fas fa-server' },
+    { id: 9, name: 'Flask', category: 'FW', icon: 'fas fa-flask' },
+    { id: 10, name: 'React', category: 'FW', icon: 'fab fa-react' },
+    { id: 11, name: 'Tailwind CSS', category: 'FW', icon: 'fas fa-wind' },
+    { id: 12, name: 'Flutter', category: 'FW', icon: 'fas fa-mobile-alt' },
+    // AI / ML
+    { id: 13, name: 'Machine Learning', category: 'AI', icon: 'fas fa-brain' },
+    { id: 14, name: 'Deep Learning', category: 'AI', icon: 'fas fa-network-wired' },
+    { id: 15, name: 'TensorFlow', category: 'AI', icon: 'fas fa-microchip' },
+    { id: 16, name: 'LLM APIs', category: 'AI', icon: 'fas fa-robot' },
+    // Data & Analytics
+    { id: 17, name: 'Power BI', category: 'DA', icon: 'fas fa-chart-bar' },
+    { id: 18, name: 'Tableau', category: 'DA', icon: 'fas fa-chart-line' },
+    { id: 19, name: 'Microsoft Excel', category: 'DA', icon: 'fas fa-file-excel' },
+    { id: 20, name: 'Pandas', category: 'DA', icon: 'fas fa-table' },
+    { id: 21, name: 'NumPy', category: 'DA', icon: 'fas fa-calculator' },
+    // Databases
+    { id: 22, name: 'PostgreSQL', category: 'DB', icon: 'fas fa-database' },
+    { id: 23, name: 'MySQL', category: 'DB', icon: 'fas fa-database' },
+    { id: 24, name: 'SQLite', category: 'DB', icon: 'fas fa-database' }
+];
+
 const Skills = () => {
     const [skills, setSkills] = useState([]);
 
     useEffect(() => {
-        fetchSkills();
+        // Simulate premium loading delay
+        setTimeout(() => {
+            setSkills(LOCAL_SKILLS);
+        }, 500);
     }, []);
-
-    const fetchSkills = async () => {
-        try {
-            const response = await api.get('/api/skills/');
-            setSkills(response.data);
-        } catch (error) {
-            console.error('Error fetching skills:', error);
-        }
-    };
 
     // Split skills into two rows for the marquee effect
     const midPoint = Math.ceil(skills.length / 2);

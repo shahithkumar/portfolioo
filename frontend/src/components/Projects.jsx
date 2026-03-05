@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import './Projects.css';
 
@@ -170,7 +171,7 @@ const Projects = () => {
             )}
 
             {/* Project Preview Modal */}
-            {selectedProject && (
+            {selectedProject && createPortal(
                 <div className="preview-modal-overlay" onClick={closePreview}>
                     <div className="preview-modal-content" onClick={e => e.stopPropagation()}>
                         <button className="preview-close-btn" onClick={closePreview}>×</button>
@@ -218,7 +219,8 @@ const Projects = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </section>
     );
